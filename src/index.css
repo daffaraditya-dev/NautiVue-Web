@@ -30,10 +30,26 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   background-color: #041822;
   color: white;
   font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Safe area insets for mobile notch devices */
+@supports (padding: env(safe-area-inset-top)) {
+  nav {
+    padding-top: env(safe-area-inset-top);
+  }
+  footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
 
 /* Leaflet map container fix */
@@ -63,9 +79,20 @@ body {
   margin: 12px 16px !important;
 }
 
+/* Mobile-friendly map popups */
+@media (max-width: 640px) {
+  .leaflet-popup-content-wrapper {
+    max-width: 260px !important;
+  }
+  .leaflet-popup-content {
+    margin: 8px 12px !important;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -74,9 +101,32 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #1a6b8a;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #2d8fad;
+}
+
+/* Horizontal scroll utilities */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #1a6b8a;
+  border-radius: 2px;
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid #2dd4bf;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(20, 184, 166, 0.3);
+  color: white;
 }
