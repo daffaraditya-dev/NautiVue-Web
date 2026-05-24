@@ -1,4 +1,28 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --color-ocean-950: #020e15;
+  --color-ocean-900: #041822;
+  --color-ocean-800: #062433;
+  --color-ocean-700: #083144;
+  --color-ocean-600: #0a3d55;
+  --color-ocean-500: #0c4966;
+  --color-ocean-400: #1a6b8a;
+  --color-ocean-300: #2d8fad;
+  --color-ocean-200: #4ab3d1;
+  --color-ocean-100: #7dd3e8;
+  --color-teal-600: #0d9488;
+  --color-teal-500: #14b8a6;
+  --color-teal-400: #2dd4bf;
+  --color-teal-300: #5eead4;
+  --color-coral-600: #ea580c;
+  --color-coral-500: #f97316;
+  --color-coral-400: #fb923c;
+  --color-sand-200: #fde68a;
+  --color-sand-100: #fef3c7;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
 
 * {
   margin: 0;
@@ -9,5 +33,50 @@
 body {
   background-color: #041822;
   color: white;
-  font-family: sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Leaflet map container fix */
+.leaflet-container {
+  background: #062433 !important;
+  width: 100%;
+  height: 100%;
+}
+
+/* Custom Leaflet popup styling */
+.leaflet-popup-content-wrapper {
+  background: #083144 !important;
+  color: white !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+.leaflet-popup-tip {
+  background: #083144 !important;
+}
+
+.leaflet-popup-close-button {
+  color: #7dd3e8 !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 16px !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #041822;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a6b8a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2d8fad;
 }
